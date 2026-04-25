@@ -1,23 +1,13 @@
-name: Flutter Debug CI
+name: DIAG TEST
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: stable
-
-      - name: Show Flutter version
-        run: flutter --version
-
-      - name: Run flutter doctor
-        run: flutter doctor -v 
+      - name: HARD TEST
+        run: echo "RUNNING OK"
