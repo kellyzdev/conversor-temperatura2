@@ -1,13 +1,23 @@
-name: TEST CI
+name: Flutter Debug CI
 
 on:
   push:
     branches: [main]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: TEST STEP
-        run: echo "THIS WORKFLOW IS RUNNING"
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: stable
+
+      - name: Show Flutter version
+        run: flutter --version
+
+      - name: Run flutter doctor
+        run: flutter doctor -v 
